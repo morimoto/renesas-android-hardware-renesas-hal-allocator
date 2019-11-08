@@ -1,11 +1,8 @@
 service vendor.gralloc-3-0 /vendor/bin/hw/android.hardware.graphics.allocator@3.0-service
     priority -20
-    class hal animation
+    class early_hal animation
     interface android.hardware.graphics.allocator@3.0::IAllocator default
     user system
     group graphics drmrpc
     capabilities SYS_NICE
     onrestart restart surfaceflinger
-
-on early-init
-    start vendor.gralloc-3-0
