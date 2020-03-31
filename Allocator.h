@@ -56,6 +56,9 @@ public:
 
 protected:
     std::unique_ptr<AllocatorHal> mHal;
+
+private:
+    std::mutex mLock;
 };
 
 }  // namespace detail

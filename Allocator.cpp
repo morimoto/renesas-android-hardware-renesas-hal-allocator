@@ -37,6 +37,9 @@ Return<void> Allocator::allocate(const BufferDescriptor& descriptor, uint32_t co
                       IAllocator::allocate_cb _hidl_cb) {
     uint32_t stride = 0;
     std::vector<const native_handle_t*> buffers;
+
+    std::unique_lock<std::mutex> lock(mLock);
+
     Error error = mHal->allocateBuffers(descriptor, count, &stride, &buffers);
     if (error != Error::NONE) {
         _hidl_cb(error, 0, hidl_vec<hidl_handle>());
