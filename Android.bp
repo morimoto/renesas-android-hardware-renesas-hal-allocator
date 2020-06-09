@@ -15,7 +15,7 @@
  */
 
 cc_library_shared {
-    name: "android.hardware.graphics.allocator@3.0-impl",
+    name: "android.hardware.graphics.allocator@3.0-impl.renesas",
     relative_install_path: "hw",
     // FIXME: this should be 'vendor: true' for modules that will eventually be
     // on AOSP.
@@ -34,12 +34,12 @@ cc_library_shared {
 }
 
 cc_binary {
-    name: "android.hardware.graphics.allocator@3.0-service",
+    name: "android.hardware.graphics.allocator@3.0-service.renesas",
     defaults: ["hidl_defaults"],
     proprietary: true,
     relative_install_path: "hw",
     srcs: ["service.cpp"],
-    init_rc: ["android.hardware.graphics.allocator@3.0-service.rc"],
+    init_rc: ["android.hardware.graphics.allocator@3.0-service.renesas.rc"],
 
     shared_libs: [
         "android.hardware.graphics.allocator@3.0",
